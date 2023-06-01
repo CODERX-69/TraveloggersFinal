@@ -16,10 +16,10 @@ from chatbot import get_reply
 # client = MongoClient('mongodb://localhost:27017/')
 
 
-# mongo_pass = 'er0br8UTpHbU56Ir'
-# client = MongoClient(f'mongodb+srv://hiralgujrathi7:{mongo_pass}@travel.aarhqxn.mongodb.net/?retryWrites=true&w=majority')
+mongo_pass = 'er0br8UTpHbU56Ir'
+client = MongoClient(f'mongodb+srv://hiralgujrathi7:{mongo_pass}@travel.aarhqxn.mongodb.net/?retryWrites=true&w=majority')
 
-client = MongoClient(f'mongodb+srv://ashu_venom:Ashutosh2727@cluster0.qrccf.mongodb.net/?retryWrites=true&w=majority')
+# client = MongoClient(f'mongodb+srv://ashu_venom:Ashutosh2727@cluster0.qrccf.mongodb.net/?retryWrites=true&w=majority')
 db = client['myblogdb']
 
 
@@ -31,7 +31,7 @@ likes_collection = db['Likes']
 chat_collection = db['Chat']
 notifications_collection = db['notifications']
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='static')
 bcrypt = Bcrypt(app)
 
 app.config['SECRET_KEY'] = 'testKey'
@@ -397,9 +397,9 @@ def create_post():
             return redirect(url_for('create_post'))
 
         # check for duplicate article
-        if ai_filters.is_plagiarism(text,threshold):
-            flash('Plagiarism is not allowed', 'danger')
-            return redirect(url_for('create_post'))
+        # if ai_filters.is_plagiarism(blog_post):
+        #     flash('Plagiarism is not allowed', 'danger')
+        #     return redirect(url_for('create_post'))
 
         # Create a new document for the blog post
         new_blog = {

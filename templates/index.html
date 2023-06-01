@@ -18,17 +18,15 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-5 mb-3 mb-lg-0">
-                <h2 class="title">Who We Are</h2>
-                <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed
-                  arcu. Cras consequat</p><!-- End .lead text-primary -->
-                <p class="mb-2">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget
-                  blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus
-                  libero eu augue. </p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad corporis quis dolorem iure nisi tenetur fugit, a excepturi error in, laboriosam quia debitis temporibus ut sunt voluptates eum sed eveniet?</p>
+                <h2 style="font-size: xx-large;" class="title">Who We Are..</h2>
+                <p style="color:#ec9d5f; font-weight:bold; font-size: large;" class="lead mb-3">Explore our website, discover new destinations, and let our stories ignite the spark of wanderlust within you. <br/> Happy travels!</p><!-- End .lead text-primary -->
+                <p class="mb-2">Welcome to our travel blogging website! We are a passionate team of avid travelers, explorers, and storytellers who have come together to share our adventures with the world. Whether you're a seasoned globetrotter or a wanderlust-filled dreamer, we aim to inspire and guide you through our engaging travel content. </p>
+                  <!-- <p>Through our vivid storytelling, stunning photography, and practical advice, we aim to ignite your wanderlust and empower you to plan your own remarkable journeys. Whether you're seeking budget travel tips, luxury escapes, family-friendly destinations, solo travel inspiration, or adrenaline-pumping adventures, we have something for everyone.</p> -->
               </div>
               <div class="col-lg-6 offset-lg-1">
                 <div class="about-images">
                   <img
+                    style="width: 90%;"
                     src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                     alt="" class="about-img-front">
                 </div>
@@ -38,18 +36,18 @@
         </div>
         {% if search %}
         <div class="container">
-          <h1>Search result for : 
+          <h4 style="margin-top: 4rem;">Search result for : 
           <i>
             {{ search }}
           </i>
-        </h1>
+        </h4>
         </div>
         {% endif %}
         {% if title %}
-        <div class="mt-4">
-          <h1> 
-            {{ title }}
-        </h1>
+        <div class="mt-4 text-center">
+          <h2 style="font-size: xx-large; margin-top: 4rem;"> 
+          <img src="/static/img/Line 15.png" alt=""> &ensp; {{ title }} &ensp; <img src="/static/img/Line 15.png" alt="">
+          </h2>
         </div>
         {% endif %}
         {% if blogs|length == 0 %}
@@ -59,19 +57,19 @@
           </h4>
         </div>
         {% endif %}
-        <div class="row">
+        <div  class="row">
           {% for b in blogs %}
           <div class="col-4 mt-4">
             <div class="card">
               <div class="card-body d-flex flex-row">
                 <div>
-                  <h3 class="card-title font-weight-bold mb-2">{{b['title']}}</h3>
+                  <h3 class="card-title font-weight-bold mb-2 truncate">{{b['title']}}</h3>
                   <div class="thumb">
+                    <span style="background-color: #ff9907; color:white; padding:2px 8px; border-radius: 16px; font-size: small;" class="tag-list-inline"> {{ b['category'] }}</span>
                     <ul class="thumb-info">
-                      <li><i class="ti-user"></i>{{ b['user_id'] }}</li>
-                      <li><i class="ti-notepad"></i>{{ b['datetime'] }}</li>
+                      <li><i class='fas fa-user-alt'></i>&ensp;{{ b['user_id'] }}</li>
+                      <li><i class="fas fa-calendar"></i>&ensp;{{ b['datetime'] }}</li>
                     </ul>
-                    <p class="tag-list-inline">Tag: {{ b['category'] }}</p>
                   </div>
                 </div>
               </div>
