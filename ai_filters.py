@@ -215,23 +215,23 @@ tourist_places = {
          "Belum Caves", "Undavalli Caves", "Borra Caves"
     ],
     "Maharashtra": [
-        {'name': 'Shaniwar Wada', 'image': 'static\weekend\GWOI.jfif'},
-        {'name': 'Sinhagad Fort', 'image': 'static\weekend\GWOI.jfif'},
-        {'name': 'Aga Khan Palace', 'image': 'static\weekend\GWOI.jfif'},
+        {'name': 'Shaniwar Wada', 'image': 'static\weekend\Shaniwar-Wada-Pune.jpg'},
+        {'name': 'Sinhagad Fort', 'image': 'static\weekend\sinhgad.jfif'},
+        {'name': 'Aga Khan Palace', 'image': 'static\weekend\_agaKhan.jfif'},
         {'name': 'Gateway of India', 'image': 'static\weekend\GWOI.jfif'},
         {'name': 'Chhatrapati Shivaji Maharaj Terminus', 'image': 'static\weekend\CST.jfif'},
         {'name': 'Shree Siddhivinayak Ganpati Temple', 'image': 'static\weekend\siddhivinayak.jfif'},
-        {'name': 'Colaba Causeway', 'image': 'static/images/rajasthan_city_palace_jaipur.jpg'},
-        {'name': 'Crawford Market, Jodhpur', 'image': 'static/images/rajasthan_umaid_bhawan_palace.jpg'},
-        {'name': 'Trimbakeshwar Jyotirling Mandir, Nasik', 'image': 'static/images/rajasthan_jantar_mantar.jpg'},
-        {'name': 'Bhaja Caves', 'image': 'static/images/rajasthan_mehrangarh_fort.jpg'},
-        {'name': 'Ajanta Caves', 'image': 'static/images/rajasthan_jal_mahal.jpg'},
-        {'name': 'Elephanta Caves', 'image': 'static/images/rajasthan_jaisalmer_fort.jpg'},
-        {'name': 'Tadoba-Andhari National Park', 'image': 'static/images/rajasthan_sariska_tiger_reserve.jpg'},
-        {'name': 'Tadoba-Andhari National', 'image': 'static/images/rajasthan_chittorgarh_fort.jpg'},
-        {'name': 'Lonar Lake', 'image': 'static/images/rajasthan_jag_mandir.jpg'},
-        {'name': 'Kanheri Caves', 'image': 'static/images/rajasthan_jag_mandir.jpg'},
-        {'name': 'Sanjay Gandhi National Park', 'image': 'static/images/rajasthan_jag_mandir.jpg'}
+        {'name': 'Colaba Causeway', 'image': 'static\weekend\colaba.jfif'},
+        {'name': 'Crawford Market, Jodhpur', 'image': 'static\weekend\crofrd.jfif'},
+        {'name': 'Trimbakeshwar Jyotirling Mandir', 'image': 'static\weekend\_trimbaeshwar.jfif'},
+        {'name': 'Bhaja Caves', 'image': 'static\weekend\_bhaja.jfif'},
+        {'name': 'Lonar Lake', 'image': 'static\weekend\lonar.jfif'},
+        {'name': 'Ajanta Caves', 'image': 'static\weekend\_ajanta.jfif'},
+        {'name': 'Elephanta Caves', 'image': 'static\weekend\elephanta.jfif'},
+        {'name': 'Tadoba-Andhari National Park', 'image': 'static\weekend\_tadoba.jfif'},
+        {'name': 'Lohgadh', 'image': 'static\weekend\lohgad.jfif'},
+        {'name': 'Sanjay Gandhi National Park', 'image': 'static\weekend\SGNP.jfif'},
+        {'name': 'Kanheri Caves', 'image': 'static\weekend\kanheri.jfif'}
 
     ]
 }
