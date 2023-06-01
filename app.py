@@ -31,7 +31,7 @@ likes_collection = db['Likes']
 chat_collection = db['Chat']
 notifications_collection = db['notifications']
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='static')
 bcrypt = Bcrypt(app)
 
 app.config['SECRET_KEY'] = 'testKey'
