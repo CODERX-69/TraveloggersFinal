@@ -1,0 +1,92 @@
+.toggleBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px;
+    display: flow-root;
+}
+
+.toggleBox .toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 73px;
+    height: 30px;
+    background: #444;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.toggleBox .toggle .toggle_btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 22px;
+    height: 21px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggleBox .toggle.active {
+    background: cornflowerblue;
+}
+
+.toggleBox .toggle.active .toggle_btn {
+    left: 45px;
+}
+
+.toggleBox .text {
+    position: absolute;
+    left: 83px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 575px) and (min-width: 410px) {
+    .toggleBox {
+        margin-top: -25px;
+    }
+
+
+}
+
+@media only screen and (max-width: 409px) and (min-width: 200px) {
+    .toggleBox {
+        margin-top: 0px;
+        left: 10px;
+    }
+}
+
+@media only screen and (max-width: 575px) and (min-width: 320px) {
+
+    .cap_in {
+        width: 60%;
+    }
+
+    .cp_txt {
+
+        position: relative;
+        left: 70%;
+        bottom: 36px;
+        padding: 4px;
+    }
+}
+
+@media only screen and (max-width: 319px) and (min-width: 150px) {
+
+    .cap_in {
+        width: 100%;
+    }
+
+    .cp_txt {
+
+        position: relative;
+        left: 7%;
+        top: 10px;
+        padding: 4px;
+    }
+}

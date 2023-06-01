@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <section class="blog-post-area section-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main_blog_details">
+                        <img class="img-fluid" src="{{  blog['image_path'] }}" alt="" style="width: 100%; height: 500px;">
+                        <a href="#">
+                            <h4>{{blog['title']}}</h4>
+                        </a>
+                        <div class="user_details">
+                            <div class="float-right mt-sm-0 mt-3">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h5>{{blog['user_id']}}</h5>
+                                        <p>{{ blog['datetime'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>{{ blog['blog_post']}}</p>
+                        <div class="news_d_footer flex-column flex-sm-row">
+                            <a href="/add_like?blog_id={{blog['blog_id']}}"><span class="align-middle mr-2">
+                                
+                                {% if mylike %}
+                                <i class="ti-heart" style="color: #fa0000;"></i>
+                                {% else %}
+                                <i class="ti-heart"></i>
+                                {% endif %}
+                            </span>{{ likes }} people
+                                liked this</a>
+                            <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span
+                                    class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ comments|length }} Comments</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <div class="single-sidebar-widget popular-post-widget">
+                            <h4 class="single-sidebar-widget__title">Recommended Post</h4>
+                            <div class="popular-post-list">
+                              {% for r in recommendations %}
+                              <div class="single-post-list">
+                                <div class="thumb">
+                                  <img class="card-img rounded-0" src="img/blog/thumb/thumb1.png" alt="">
+                                  <ul class="thumb-info">
+                                    <li><a href="/blog?id={{r['blog_id']}}">{{ r['title'] }}</a></li>
+                                    <li>{{ r['datetime'] }}</li>
+                                  </ul>
+                                </div>
+                                <div class="details mt-20">
+                                    <h6 class="truncate">{{ r['blog_post'] }}</h6>
+                                </div>
+                              </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                    </div>
+                    <hr>
+                    <div class="comments-area">
+                        <h4>{{ comments|length }} Comments</h4>
+
+                        {% for c in comments %}
+                        <div class="comment-list">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img src="img/blog/c1.jpg" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <h3>{{ c['name'].title() }}</h3>
+                                        <p class="date">{{ c['datetime'] }}</p>
+                                        <p class="comment">
+                                           {{ c['message'] }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="comment-form">
+                        <h4>Leave a Reply</h4>
+                        <form action="/add_comment?blog_id={{blog['blog_id']}}" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control mb-10" rows="5" name="message" placeholder="Message" name="message"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'"
+                                    required=""></textarea>
+                            </div>
+                            <button type="submit" href="#" class="button submit_btn">Post Comment</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Blog Post Siddebar -->
+        </div>
+    </section>
+{% endblock %}

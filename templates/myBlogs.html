@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="blog-post-area section-margin">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <span
+                    style="color: #000000bd; font-size: 40px; font-weight: 600; display: flex; align-items: center; justify-content: space-between;">
+                    <!-- <center> -->
+                    MY BLOGS
+                    <!-- </center> -->
+                    <div>
+                        <a href="/create" class="btn" style="background: #000; color: #fff;">Create Blogs</a>
+                    </div>
+                </span>
+                <div class="row">
+                    {% if blogs|length == 0 %}
+
+                    <div class="container text-center">
+                        <h1>
+                            No Posts
+                        </h1>
+                    </div>
+                    {% endif %}
+                    {% for b in blogs %}
+                    <div class="col-md-4">
+                        <div class="single-recent-blog-post card-view" style="border: 1px solid black; padding: 14px;">
+                            <div class="thumb">
+                                <img class="card-img rounded-0" src="{{ b['image_path'] }}" alt="">
+                            </div>
+                            <div class="details">
+                                <a href="single_blog.html">
+                                    <h3>{{ b['title'] }}</h3>
+                                </a>
+                                <p class="truncate"> {{ b['blog_post'] }}</p>
+
+                                <div style="display: flex; align-items: center; justify-content: center;">
+                                    <a class="btn" href="/blog?id={{b['blog_id']}}"
+                                        style="margin: 10px;background: black; color: #fff;">Read More <i
+                                            class="ti-arrow-right"></i></a>
+                                    <a class="btn btn-info" href="/update-blog?id={{ b['blog_id'] }}"
+                                        style="margin: 10px;"><i class="ti-pencil-alt"></i></a>
+                                    <a class="btn btn-danger" href="/delete-blog/{{ b['blog_id'] }}"
+                                        style="margin: 10px;"><i class="ti-trash"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- <div class="row">
+                        <div class="col-lg-12">
+                            <nav class="blog-pagination justify-content-center d-flex">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a href="#" class="page-link" aria-label="Previous">
+                                            <span aria-hidden="true">
+                                                <i class="ti-angle-left"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                    <li class="page-item">
+                                        <a href="#" class="page-link" aria-label="Next">
+                                            <span aria-hidden="true">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div> -->
+            </div>
+
+
+        </div>
+</section>
+{% endblock %}

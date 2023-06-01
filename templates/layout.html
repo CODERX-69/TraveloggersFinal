@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Traveloggers</title>
+  <link rel="icon" href="img/Fevicon.png" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="static/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="static/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="static/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="static/vendors/linericon/style.css">
+  <link rel="stylesheet" href="static/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="static/vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/custom.css">
+  <style>
+    /* CSS for the fixed button */
+    .fixed-button {
+      position: fixed;
+      bottom: 50px;
+      right: 20px;
+      z-index: 1;
+    }
+
+    .truncate {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'message' %}
+    <div class="alert alert-warning" role="alert">
+      {% else %}
+      <div class="alert alert-{{ category }}" role="alert">
+        {% endif %}
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+    <header class="header_area">
+      <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container box_1620">
+            <a class="navbar-brand h1" href="/">Travellogers
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+              {% if (url_for(request.endpoint) != '/login') and (url_for(request.endpoint) != '/register') %}
+              <ul class="nav navbar-nav menu_nav justify-content-center">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/weekend">Planner</a></li>
+                {% if is_admin %}
+                <li class="nav-item"><a class="nav-link" href="/my-blogs">My Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="/analytics">Analytics</a></li>
+                {% endif %}
+
+                {% if current_user.is_authenticated %}
+                <li class="nav-item submenu dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">{{ current_user.username }} &nbsp;{{ '(creator)' if is_admin }}</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                  </ul>
+                </li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                {% endif %}
+
+                <li class="nav-item submenu dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDarkDropdownMenuLink"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="ti-bell"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="get-all-notification">
+                    <li><a class="dropdown-item" href="/planner">No notifications</a></li>
+                    {% for n in notifications %}
+                      <li><a class="dropdown-item" href="/planner">Action</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right navbar-social">
+                <form method="get" action="/">
+                  <div style="display: flex; align-items: center;">
+                    <input type="text" name="keyword" class="form-control form-control-sm">
+                    <button class="btn btn-dark btn-sm" style="margin-left:10px;"><i class="ti-search"></i></button>
+                  </div>
+                </form>
+              </ul>
+              {% endif %}
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <a href="/chatbot" class="btn btn-primary fixed-button">Chat with ChatBot</a>
+      
+      {% block content %}
+      {% endblock content %}
+    </main>
+
+    <footer class="footer-area fixed-bottom">
+      <div class="container my-2 text-center">
+        <div class="footer-social d-flex align-items-center">
+          <a href="#" style="text-decoration:none;" class="text-white">
+            Follow Us on :
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="static/jquery/jquery-3.2.1.min.js"></script>
+    <script src="static/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="static/owl-carousel/owl.carousel.min.js"></script>
+    <script src="static/js/jquery.ajaxchimp.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <script>
+      $(document).ready(function () {
+        // API endpoint and query parameters
+        var apiUrl = 'http://localhost:5000/get-notifications';
+        var queryParams = {
+          username: '{{ current_user.username }}',
+        };
+
+        // AJAX call to the API
+        $.ajax({
+          url: apiUrl,
+          data: queryParams,
+          dataType: 'json',
+          success: function (response) {
+            // Process the JSON response
+            var responseList = $('#get-all-notification');
+
+            // Clear any existing list items
+            responseList.empty();
+
+            // Iterate over the response values and add them to the list
+            for (const r of response) {
+              console.log(r)
+              var listItem = $('<li>').append(
+                $('<a>', {
+                  class: 'dropdown-item',
+                  href: '/planner',
+                  text: r.message
+                })
+              );
+              responseList.append(listItem);
+            }
+          },
+          error: function (xhr, status, error) {
+            console.error('AJAX Error:', error);
+          }
+        });
+      });
+
+
+  
+      function checkPasswordStrength() {
+            var password = document.getElementById('password').value;
+            if (password === '') {
+                document.getElementById('result').innerHTML = 'Please enter a password.';
+                return;
+            }
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/check_password_strength', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    document.getElementById('result').innerHTML = 'Password strength: ' + response.strength;
+                }
+            };
+            xhr.send(JSON.stringify({password: password}));
+        }
+       document.addEventListener('DOMContentLoaded', function() {
+    var flashOverlay = document.getElementById('flash-overlay');
+    var body = document.querySelector('body');
+
+    if (flashOverlay) {
+      // Add class to body when flash messages are present
+      body.classList.add('flash-overlay-active');
+
+      // Remove class from body after a delay (e.g., 3 seconds)
+      setTimeout(function() {
+        body.classList.remove('flash-overlay-active');
+      }, 3000);
+    }
+  });
+
+    </script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>

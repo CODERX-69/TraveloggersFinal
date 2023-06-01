@@ -1,0 +1,130 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!--================Hero Banner start =================-->
+<section class="mb-30px">
+  <div class="">
+    <div class="hero-banner">
+      <div class="hero-banner__content">
+        <h1>Amazing Places on earth</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="blog-post-area section-margin mt-4">
+  <div class="m-4">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="border p-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-5 mb-3 mb-lg-0">
+                <h2 class="title">Who We Are</h2>
+                <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed
+                  arcu. Cras consequat</p><!-- End .lead text-primary -->
+                <p class="mb-2">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget
+                  blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus
+                  libero eu augue. </p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad corporis quis dolorem iure nisi tenetur fugit, a excepturi error in, laboriosam quia debitis temporibus ut sunt voluptates eum sed eveniet?</p>
+              </div>
+              <div class="col-lg-6 offset-lg-1">
+                <div class="about-images">
+                  <img
+                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="" class="about-img-front">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if search %}
+        <div class="container">
+          <h1>Search result for : 
+          <i>
+            {{ search }}
+          </i>
+        </h1>
+        </div>
+        {% endif %}
+        {% if title %}
+        <div class="mt-4">
+          <h1> 
+            {{ title }}
+        </h1>
+        </div>
+        {% endif %}
+        {% if blogs|length == 0 %}
+        <div class="container text-center">
+          <h4>
+            No Posts Found
+          </h4>
+        </div>
+        {% endif %}
+        <div class="row">
+          {% for b in blogs %}
+          <div class="col-4 mt-4">
+            <div class="card">
+              <div class="card-body d-flex flex-row">
+                <div>
+                  <h3 class="card-title font-weight-bold mb-2">{{b['title']}}</h3>
+                  <div class="thumb">
+                    <ul class="thumb-info">
+                      <li><i class="ti-user"></i>{{ b['user_id'] }}</li>
+                      <li><i class="ti-notepad"></i>{{ b['datetime'] }}</li>
+                    </ul>
+                    <p class="tag-list-inline">Tag: {{ b['category'] }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-text truncate">
+                  {{ b['blog_post'] }}
+                </p>
+                <div class="d-flex justify-content-between">
+                  <a class="button" href="/blog?id={{b['blog_id']}}">Read More <i class="ti-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          
+        </div>
+      </div>
+
+      <div class="col-lg-4 sidebar-widgets">
+        <div class="widget-wrap">
+          <div class="single-sidebar-widget post-category-widget">
+            <h4 class="single-sidebar-widget__title">Category</h4>
+            <ul class="cat-list mt-2">
+              {% for k,v in all_categories.items() %}
+              <li>
+                <a href="/?category={{k}}" class="d-flex justify-content-between">
+                  <p>{{ k }}</p>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="single-sidebar-widget popular-post-widget">
+            <h4 class="single-sidebar-widget__title">Recommended Post</h4>
+            <div class="popular-post-list">
+              {% for r in recommended %}
+              <div class="single-post-list">
+                <div class="details mt-4">
+                  <a href="/blog?id={{r['blog_id']}}">
+                    <h6 class="truncate m-0 p-0">{{ r['title'] }}</h6>
+                    <p class="">{{ r['datetime'] }}</p>
+                  </a>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+<!-- End Blog Post Siddebar -->
+</div>
+</section>
+{% endblock %}

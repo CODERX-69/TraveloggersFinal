@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<section style="background-color: #eee;">
+  <div class="container py-5">
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-4">
+
+        <div class="card" id="chat1" style="border-radius: 15px;">
+          <div
+            class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0 text-center"
+            style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+            <p class="mb-0 fw-bold">Travellogers chat</p>
+          </div>
+          <div class="card-body" id= "chat-container">
+            <div class="d-flex flex-row justify-content-start mb-4">
+              <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                <p class="small mb-0">Ask me question, e.g:
+                  <br>
+                  how are you
+                  <br>
+                  what can you do
+                  <br>
+                  what is your name
+                </p>
+              </div>
+            </div>
+            {% for c in chats %}
+            <div class="d-flex flex-row justify-content-start mb-4">
+              <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                <p class="small mb-0">{{ c['message'] }}</p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row justify-content-end mb-4">
+              <div class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;">
+                <p class="small mb-0">{{ c['reply'] }}</p>
+              </div>
+            </div>
+            {% endfor %}
+            
+            <form class="form-outline" action="/chatbot" method="post">
+              <textarea class="form-control" name="message" id="textAreaExample" rows="4"></textarea>
+              <label class="form-label" for="textAreaExample">Type your message</label>
+
+              <div class="container text-center">
+                <input class="btn btn-info m-2" type="submit" value="Submit">
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

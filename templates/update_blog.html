@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+{% block content %}
+        <section class="blog-post-area section-margin mt-4">
+            <div class="container">
+                <div class="row" style="display: flex; align-items: center; justify-content: center; margin-top: 3%;">
+                    <div class="col-lg-12">
+                        <span>
+                            <center>
+                                <h4><b>UPDATE BLOG</b></h4>
+                            </center>
+                        </span>
+                        <div class="card">
+                            <form action="/update-blog?id={{ blog['blog_id'] }}" method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="title" class="col-sm-3 col-form-label"><span
+                                                style="font-weight: 600; color: black;">Blog Title</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="title" name="title" value="{{ blog['title'] }}"
+                                                placeholder="Enter Title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-3 col-form-label"><span
+                                                style="font-weight: 600; color: black;">Blog Text</span></label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" name="blog_post" id="" cols="30"
+                                                rows="5">{{ blog['blog_post'] }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-3 col-form-label"><span
+                                                style="font-weight: 600; color: black;">Means Of Travel</span></label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="means_of_travel" id="" value="{{ blog['means_of_travel'] }}">
+                                                <option value="">Select Means Of Travel</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '1' }}" value="1">By Car</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '2' }}" value="2">By Bike</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '3' }}" value="3">By Train</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '4' }}" value="4">By Bus</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '5' }}" value="5">By Walk</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-3 col-form-label"><span
+                                                style="font-weight: 600; color: black;">Blog Category</span></label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="category" id="category">
+                                                <option value="">Select Category</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '1' }}" value="1">Beaches</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '2' }}" value="2">Mountains/Hill Stations</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '3' }}" value="3">National Parks/Wildlife Sanctuaries</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '4' }}" value="4">Historical/Cultural sites</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '5' }}" value="5">Theme Parks/Adeventure (e.g., trekking, skiing,
+                                                    rafting, bungee jumping)</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '6' }}" value="6">Artistic destinations</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '7' }}" value="7">Deserts</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '8' }}" value="8">Dams/Lakes</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '9' }}" value="9">Religious/Spiritual destinations</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '10' }}" value="10">Educational destinations</option>
+                                                <option selected="{{ 'selected' if blog['category'] == '11' }}" value="11">Cities</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="">
+                                        <label for="" class="col-sm-3 col-form-label"><span
+                                                style="font-weight: 600; color: black;">Upload Image</span></label>
+                                        <div class="col-sm-9">
+                                           <input type="file" name="image" class="form-control form-control-sm" style="height: 38px;" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-right">
+                                    <button class="btn btn-primary btn-sm text-center">POST</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </section>
+{% endblock %}
