@@ -26,10 +26,10 @@
                     {% for b in blogs %}
                     <div class="col-md-4">
                         <div class="single-recent-blog-post card-view" style="border: 1px solid black; padding: 14px;">
-                            <div class="thumb">
-                                <img class="card-img rounded-0" src="{{ b['image_path'] }}" alt="">
+                            <div class="thumb" style = "  object-fit:contain;">
+                                <img class="card-img rounded-0" src="{{ b['image_path'] }}" alt="" style="width: 320px; height:200px;">
                             </div>
-                            <div class="details">
+                            <div class="details truncate">
                                 <a href="single_blog.html">
                                     <h3>{{ b['title'] }}</h3>
                                 </a>

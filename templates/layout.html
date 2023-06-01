@@ -15,10 +15,9 @@
   <link rel="stylesheet" href="static/vendors/owl-carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="static/css/custom.css"> -->
-  <link rel="stylesheet" href="{{url_for('static', filename ='static/vendors/themify-icons/themify-icons.css')}}" rel="stylesheet">
 
-  
   <!--<link href="{{ url_for('static', filename='static/vendors/themify-icons/themify-icons.css') }}" rel="stylesheet">--> 
+  <link href="{{ url_for('static', filename='vendors/themify-icons/themify-icons.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendors/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendors/fontawesome/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendors/linericon/style.css') }}" rel="stylesheet">
@@ -85,7 +84,10 @@
                 {% if current_user.is_authenticated %}
                 <li class="nav-item submenu dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                    aria-expanded="false">{{ current_user.username }} &nbsp;{{ '(creator)' if is_admin }}</a>
+                    aria-expanded="false"><img style="height: 40px; margin:-8px 8px 0 0" src="/static/img/Group 53.png" alt="">{{ current_user.username }}                     {% if is_admin %}
+                    <i style="color:blue" class='fas fa-check-circle'></i>
+                    {% endif %}
+                  </a>
                   <ul class="dropdown-menu">
                     <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                   </ul>
@@ -133,6 +135,7 @@
     <footer class="footer-area fixed-bottom">
       <div class="container my-2 text-center">
         <div class="footer-social d-flex align-items-center">
+         <span style="margin-right: 12px;"> © 2023 Traveloggers, Inc. </span>
           <a href="#" style="text-decoration:none;" class="text-white">
             Follow Us on :
           </a>
@@ -223,6 +226,8 @@
       }, 3000);
     }
   });
+
+  
 
     </script>
     {% block scripts %}

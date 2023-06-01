@@ -7,10 +7,10 @@ from rake_nltk import Rake
 import time
 
 
-# def rake_algorithm(text):
-#     r = Rake()
-#     r.extract_keywords_from_text(text)
-#     return r.get_ranked_phrases()
+def rake_algorithm(text):
+    r = Rake()
+    r.extract_keywords_from_text(text)
+    return r.get_ranked_phrases()
 
 
 # API_TOKEN = 'i2bIgiDFdWVngAL7dzokTav_svLEmtVI'
@@ -215,23 +215,24 @@ tourist_places = {
          "Belum Caves", "Undavalli Caves", "Borra Caves"
     ],
     "Maharashtra": [
-        {'name': 'Shaniwar Wada', 'image': 'static\weekend\Shaniwar-Wada-Pune.jpg'},
-        {'name': 'Sinhagad Fort', 'image': 'static\weekend\sinhgad.jfif'},
-        {'name': 'Aga Khan Palace', 'image': 'static\weekend\_agaKhan.jfif'},
-        {'name': 'Gateway of India', 'image': 'static\weekend\GWOI.jfif'},
-        {'name': 'Chhatrapati Shivaji Maharaj Terminus', 'image': 'static\weekend\CST.jfif'},
-        {'name': 'Shree Siddhivinayak Ganpati Temple', 'image': 'static\weekend\siddhivinayak.jfif'},
-        {'name': 'Colaba Causeway', 'image': 'static\weekend\colaba.jfif'},
-        {'name': 'Crawford Market, Jodhpur', 'image': 'static\weekend\crofrd.jfif'},
-        {'name': 'Trimbakeshwar Jyotirling Mandir', 'image': 'static\weekend\_trimbaeshwar.jfif'},
-        {'name': 'Bhaja Caves', 'image': 'static\weekend\_bhaja.jfif'},
-        {'name': 'Lonar Lake', 'image': 'static\weekend\lonar.jfif'},
-        {'name': 'Ajanta Caves', 'image': 'static\weekend\_ajanta.jfif'},
-        {'name': 'Elephanta Caves', 'image': 'static\weekend\elephanta.jfif'},
-        {'name': 'Tadoba-Andhari National Park', 'image': 'static\weekend\_tadoba.jfif'},
-        {'name': 'Lohgadh', 'image': 'static\weekend\lohgad.jfif'},
-        {'name': 'Sanjay Gandhi National Park', 'image': 'static\weekend\SGNP.jfif'},
-        {'name': 'Kanheri Caves', 'image': 'static\weekend\kanheri.jfif'}
+        {'name': 'Rajmachi', 'image': 'static\weekend\_rajmachi.jpg', 'link':'https://maps.app.goo.gl/z3T2QfHQBPJXsPwf7'},
+        {'name': 'Shaniwar Wada', 'image': 'static\weekend\Shaniwar-Wada-Pune.jpg', 'link':'https://maps.app.goo.gl/rRjapFNBFgJKRsGY9'},
+        {'name': 'Sinhagad Fort', 'image': 'static\weekend\sinhgad.jfif', 'link':'https://maps.app.goo.gl/R6FxgDTv6wBxDVFXA'},
+        {'name': 'Aga Khan Palace', 'image': 'static\weekend\_agaKhan.jfif', 'link':'https://maps.app.goo.gl/KQAJpoRAkGFxZaUr6'},
+        {'name': 'Gateway of India', 'image': 'static\weekend\GWOI.jfif', 'link':'https://maps.app.goo.gl/1MPLHNQmQChLAgdj6'},
+        {'name': 'Chhatrapati Shivaji Maharaj Terminus', 'image': 'static\weekend\CST.jfif', 'link':'https://maps.app.goo.gl/87KHJ81mcG3Vb1hy8'},
+        {'name': 'Shree Siddhivinayak Ganpati Temple', 'image': 'static\weekend\siddhivinayak.jfif', 'link':'https://maps.app.goo.gl/oZWgSUwXy16R2ve7A'},
+        {'name': 'Colaba Causeway', 'image': 'static\weekend\colaba.jfif', 'link':'https://maps.app.goo.gl/byQUGMgKegWkyJj28'},
+        {'name': 'Crawford Market', 'image': 'static\weekend\crofrd.jfif', 'link':'https://maps.app.goo.gl/X6si7ssU2q6vwDnX6'},
+        {'name': 'Trimbakeshwar Jyotirling Mandir', 'image': 'static\weekend\_trimbaeshwar.jfif', 'link':'https://maps.app.goo.gl/iCnv553k2QfDMcmC6'},
+        {'name': 'Bhaja Caves', 'image': 'static\weekend\_bhaja.jfif', 'link':'https://maps.app.goo.gl/vUifpyYUFvoaA24eA'},
+        {'name': 'Lonar Lake', 'image': 'static\weekend\lonar.jfif', 'link':'https://maps.app.goo.gl/a2q855CFYqyVWUtCA'},
+        {'name': 'Ajanta Caves', 'image': 'static\weekend\_ajanta.jfif', 'link':'https://maps.app.goo.gl/DcyGJ2dk23v4Ca8f8'},
+        {'name': 'Elephanta Caves', 'image': 'static\weekend\elephanta.jfif', 'link':'https://maps.app.goo.gl/dxDNaer11i23vwwr6'},
+        {'name': 'Tadoba-Andhari National Park', 'image': 'static\weekend\_tadoba.jfif', 'link':'https://maps.app.goo.gl/T86E56RnhzUn9zmr9'},
+        {'name': 'Lohagadh', 'image': 'static\weekend\lohgad.jfif', 'link':'https://maps.app.goo.gl/sJQZ5NQEZ9EtBjbx9'},
+        {'name': 'Sanjay Gandhi National Park', 'image': 'static\weekend\SGNP.jfif', 'link':'https://maps.app.goo.gl/CoMWfKTCCtiLyZWH6'},
+        {'name': 'Kanheri Caves', 'image': 'static\weekend\kanheri.jfif', 'link':'https://maps.app.goo.gl/Pb51qxBnrM53hT758'}
 
     ]
 }

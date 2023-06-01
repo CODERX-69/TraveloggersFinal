@@ -380,7 +380,7 @@ def logout():
 @login_required
 def create_post():
 
-    if request.method == 'POST':
+    if request.method == 'POST': 
         # Get user input from the form
         title = request.form['title']
         blog_post = request.form['blog_post']
@@ -397,8 +397,8 @@ def create_post():
             return redirect(url_for('create_post'))
 
         # check for duplicate article
-        # if ai_filters.is_plagiarism(blog_post):
-        #     flash('Plagiarism is not allowed', 'danger')
+        # if ai_filters.is_plagiarism(blog_post, 70):
+        #     flash("Plagiarism Found: You can not post this blog.", 'danger')
         #     return redirect(url_for('create_post'))
 
         # Create a new document for the blog post
