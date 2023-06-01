@@ -14,8 +14,12 @@ from chatbot import get_reply
 
 # Connect to MongoDB
 # client = MongoClient('mongodb://localhost:27017/')
-mongo_pass = 'er0br8UTpHbU56Ir'
-client = MongoClient(f'mongodb+srv://hiralgujrathi7:{mongo_pass}@travel.aarhqxn.mongodb.net/?retryWrites=true&w=majority')
+
+
+# mongo_pass = 'er0br8UTpHbU56Ir'
+# client = MongoClient(f'mongodb+srv://hiralgujrathi7:{mongo_pass}@travel.aarhqxn.mongodb.net/?retryWrites=true&w=majority')
+
+client = MongoClient(f'mongodb+srv://ashu_venom:Ashutosh2727@cluster0.qrccf.mongodb.net/?retryWrites=true&w=majority')
 db = client['myblogdb']
 
 
