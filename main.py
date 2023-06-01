@@ -393,9 +393,9 @@ def create_post():
             return redirect(url_for('create_post'))
 
         # check for duplicate article
-        # if ai_filters.is_plagiarism(blog_post):
-        #     flash('Plagiarism is not allowed', 'danger')
-        #     return redirect(url_for('create_post'))
+        if ai_filters.is_plagiarism(text,threshold):
+            flash('Plagiarism is not allowed', 'danger')
+            return redirect(url_for('create_post'))
 
         # Create a new document for the blog post
         new_blog = {

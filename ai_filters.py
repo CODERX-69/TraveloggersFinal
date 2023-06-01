@@ -13,60 +13,60 @@ def rake_algorithm(text):
     return r.get_ranked_phrases()
 
 
-# API_TOKEN = 'i2bIgiDFdWVngAL7dzokTav_svLEmtVI'
+API_TOKEN = 'i2bIgiDFdWVngAL7dzokTav_svLEmtVI'
 
-# def req1(text):
-#     headers = {
-#         'X-API-TOKEN': API_TOKEN,
-#         'Content-Type': 'application/x-www-form-urlencoded',
-#     }
+def req1(text):
+    headers = {
+        'X-API-TOKEN': API_TOKEN,
+        'Content-Type': 'application/x-www-form-urlencoded',
+    }
 
-#     data = 'language=en&text={}'.format(text)
+    data = 'language=en&text={}'.format(text)
 
-#     response = requests.post('https://plagiarismcheck.org/api/v1/text', headers=headers, data=data)
-#     print(response.json())
-#     return response.json()
-
-
-# def req2(text_id):
-#     headers = {
-#         'X-API-TOKEN': API_TOKEN,
-#     }
-
-#     response = requests.get('https://plagiarismcheck.org/api/v1/text/{}'.format(text_id), headers=headers)
-#     print(response)
-#     return response.json()
+    response = requests.post('https://plagiarismcheck.org/api/v1/text', headers=headers, data=data)
+    print(response.json())
+    return response.json()
 
 
-# def req3(text_id):
-#     headers = {
-#         'X-API-TOKEN': API_TOKEN,
-#     }
+def req2(text_id):
+    headers = {
+        'X-API-TOKEN': API_TOKEN,
+    }
 
-#     response = requests.get('https://plagiarismcheck.org/api/v1/text/report/{}'.format(text_id), headers=headers)
-#     print(response.json())
+    response = requests.get('https://plagiarismcheck.org/api/v1/text/{}'.format(text_id), headers=headers)
+    print(response)
+    return response.json()
 
-#     return response.json()
+
+def req3(text_id):
+    headers = {
+        'X-API-TOKEN': API_TOKEN,
+    }
+
+    response = requests.get('https://plagiarismcheck.org/api/v1/text/report/{}'.format(text_id), headers=headers)
+    print(response.json())
+
+    return response.json()
 
 
-# def is_plagiarism(text, threshold):
-#     response = req1(text)
-#     if response['success']:
-#         text_id = response['data']['text']['id']
-#         print(text_id)
-#         req2(text_id)
-#         interval = 1 # seconds
-#         while True:
-#             try:
-#                 if int(req3(text_id)['data']['report']['percent']) > threshold:
-#                     return True
-#             except Exception as e:
-#                 print(e)
-#                 pass
+def is_plagiarism(text, threshold):
+    response = req1(text)
+    if response['success']:
+        text_id = response['data']['text']['id']
+        print(text_id)
+        req2(text_id)
+        interval = 1 # seconds
+        while True:
+            try:
+                if int(req3(text_id)['data']['report']['percent']) > threshold:
+                    return True
+            except Exception as e:
+                print(e)
+                pass
 
-#             time.sleep(interval)
+            time.sleep(interval)
 
-#     return False
+    return False
 
 
 
