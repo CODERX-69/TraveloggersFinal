@@ -7,10 +7,10 @@ from rake_nltk import Rake
 import time
 
 
-def rake_algorithm(text):
-    r = Rake()
-    r.extract_keywords_from_text(text)
-    return r.get_ranked_phrases()
+# def rake_algorithm(text):
+#     r = Rake()
+#     r.extract_keywords_from_text(text)
+#     return r.get_ranked_phrases()
 
 
 # API_TOKEN = 'i2bIgiDFdWVngAL7dzokTav_svLEmtVI'
