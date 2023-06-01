@@ -601,4 +601,4 @@ def get_password_strength(password):
         return 'weak'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
