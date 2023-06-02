@@ -325,7 +325,7 @@ def register():
             "location": location
         }
         users_collection.insert_one(user_data)
-
+        flash("Registration Successful!", 'success')
         # Redirect the user to the login page
         return redirect('/login')
 

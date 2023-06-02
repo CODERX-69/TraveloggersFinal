@@ -135,6 +135,17 @@ def weekend_planner(place):
 
 
 tourist_places = {
+     "Gujrat":[
+        {"name":"Statue of Unity", "image":"static\weekend\SOU.jpg","link":""}, 
+        {"name":"Pavagadh Hill", "image":"static\weekend\pavagadh.jfif","link":""}, 
+        {"name":"Kankaria Lake", "image":"static\weekend\kankaria.jfif","link":""},
+        {"name":"Anand", "image":"static\weekend\_anand.jfif","link":""}, 
+        {"name":"Sardar Sarovar Dam ", "image":"static\weekend\SSD.jfif","link":""}, 
+        {"name":"Ajwa Water Park", "image":"static\weekend\_ajwa.jfif","link":""}, 
+        {"name":"Kadia Dungar Caves", "image":"static\weekend\kdc.jfif","link":""}, 
+        {"name":"Hathni Mata Waterfall ", "image":"static\weekend\HMW.jfif","link":""} 
+        ],
+     
      "Rajasthan": [
         {"name": "Ranthambore National Park", "image": "static/images/rajasthan_ranthambore.jpg"},
         {"name": "Amber Palace", "image": "static/images/rajasthan_amber_palace.jpg"},
